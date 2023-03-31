@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Jumlah Laundry</h1>
+    <p>Admin </p>
+    <input type="text" name="" id="Admin" value="{{ request.session.nmadmin }}"readonly disabled >
+    <p>Status </p>
+    <input type="text" name="" id="Status" value="{{ request.session.stsadmin }}"readonly disabled ><br>
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="Nama">Nama</label><br>
+            <input type="text" name="Nama" id="Nama" class="form-control" required>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="Jumlah">Jumlah/Kg</label><br>
+            <input type="text" name="Jumlah" id="Jumlah" class="form-control" required>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Hitung</button>
+    </form>
+</body>
+</html>

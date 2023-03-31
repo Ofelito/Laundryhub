@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'models.css' %}">
+    <title>Document</title>
+</head>
+<body>
+  <div class="model">
+    <div class="card">
+      <h4>
+        <form action="{% url 'Login' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-control">
+            <input type="text" name="Admin" id="Admin" class="form-control" required>
+              <label>
+                  <span style="transition-delay:0ms">I</span>
+                  <span style="transition-delay:50ms">d</span>
+                  <span style="transition-delay:100ms"></span>
+                  <span style="transition-delay:150ms">A</span>
+                  <span style="transition-delay:150ms">d</span>
+                  <span style="transition-delay:150ms">m</span>
+                  <span style="transition-delay:150ms">i</span>
+                  <span style="transition-delay:150ms">n</span>
+                  
+              </label>
+          </div>
+          <div class="form-control">
+            <input type="password" name="Password" id="Password" class="form-control" required>
+              <label>
+                  <span style="transition-delay:0ms">P</span>
+                  <span style="transition-delay:50ms">a</span>
+                  <span style="transition-delay:100ms">s</span>
+                  <span style="transition-delay:150ms">s</span>
+                  <span style="transition-delay:150ms">w</span>
+                  <span style="transition-delay:150ms">o</span>
+                  <span style="transition-delay:150ms">r</span>
+                  <span style="transition-delay:150ms">d</span>
+                  
+              </label>
+          </div>
+          <p>
+            <button type="submit" class="btn">Login</button>
+          </p>
+
+        </form>
+      </h4>
+    </div>
+  </div>
+</body>
+</html>
+
+
