@@ -1,31 +1,78 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Nav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Jumlah Laundry</h1>
-    <p>Admin </p>
-    <input type="text" name="" id="Admin" value="{{ request.session.nmadmin }}"readonly disabled >
-    <p>Status </p>
-    <input type="text" name="" id="Status" value="{{ request.session.stsadmin }}"readonly disabled ><br>
-    <br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="Nama">Nama</label><br>
-            <input type="text" name="Nama" id="Nama" class="form-control" required>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="Jumlah">Jumlah/Kg</label><br>
-            <input type="text" name="Jumlah" id="Jumlah" class="form-control" required>
-          </div>
-          <br>
-          <button type="submit" class="btn btn-primary">Hitung</button>
-    </form>
+  <input type="checkbox" id="check">
+  <header>
+    <label for="check">
+      <i class="fa-solid fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+        <h3>
+          Laundry<div class="loader"><span>HUB</span><span>HUB</span></div>
+        </h3>
+    </div>
+    <div class="right_area">
+      <a href="{% url 'Login' %}" class="logout_btn">Logout</a>
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <div class="profile_info">
+      <img src="" class="profile_img" alt="">
+      <h4>{{ request.session.nmadmin }}</h4>
+      <h4>{{ request.session.stsadmin }}</h4>
+    </div>
+    <a href="{% url 'index' %}" class=""><span>Home</span></a>
+    <a href="{% url 'history' %}" class=""><span>History</span></a>
+    <a href="#" class=""><span>Report</span></a>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="box">
+        <div class="form" >
+          <form action="{% url 'postpelanggan' %}" method="POST">
+            {% csrf_token %}
+              <br>
+              <div class="form-group">
+                <label for="Nama">Nama</label><br>
+                <input type="text" name="Nama" id="Nama" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="Kg">Kg</label><br>
+                <input type="text" name="Kg" id="Kg" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="Email">Email</label><br>
+                <input type="text" name="Email" id="Email" class="form-control" required>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="Alamat">Alamat</label><br>
+                <select name="Alamat" id="Alamat" class="form-control" required>
+                  <option value="">Pilih Alamat:</option>
+                  <option value="Cupuwatu I">Cupuwatu I</option>
+                  <option value="Cupuwatu II">Cupuwatu II</option>
+                  <option value="Jl. Gatot Subroto">Jl. Gatot Subroto</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Hitung</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    
 </body>
 </html>

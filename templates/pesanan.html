@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pesanan</h1>
+    <div class="form" >
+        <form action="{% url 'posttransaksi' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <a for="Id_Pel">Id Pesanan </a><br>
+            <a  name="Id_Pes" id="Id_Pes">{{ request.session.idpes }}</a> <br>
+        </div>
+        <div class="form-group">
+            <a>Id Pelanggan </a><br>
+            <a>{{ request.session.idpel }}</a> <br>
+        </div>
+        <div class="form-group">
+            <a>Nama Pelanggan</a><br>
+            <a>{{ request.session.nmpelanggan }}</a> <br>
+        </div>
+        <div class="form-group">
+            <a>Email </a><br>
+            <a>{{ request.session.email }}</a> <br>
+        </div>
+        <div class="form-group">
+            <a>Alamat Pelanggan </a><br>
+            <a>{{ request.session.almt }}</a> <br>
+        </div>
+        <div class="form-group">
+            <a>Tanggal Pesanan </a><br>
+            <a>{{ request.session.tglpes }}</a> <br>
+        </div>
+        <div class="form-group">
+            <h2 for="Total">Total</h2>
+            <h1 name="Total" id="Total">Rp.{{ request.session.jmlh }},-</h1>
+        </div>
+        <div class="form-group">
+            <label for="jmlh_uang">Jumlah Uang</label><br>
+            <input type="text" name="jmlh_uang" id="jmlh_uang" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Bayar</button>
+        <a href="#">Batal</a>
+        </form>
+    </div>
+</body>
+</html>

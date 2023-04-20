@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>History</H1>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Kode Transaksi</th>
+                <th>Nama Pelanggan</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Transaksi in data_transaksi %}
+            <tr>
+                <th for="Id_Tran">{{ Transaksi.Id_Tran }}</th>
+                <th>{{ Transaksi.Id_Pes.Id_Pel.Nama }}</th>
+                <th>
+                    <a href="#">details</a>
+                    <a href="#">Hapus</a>
+                </th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
